@@ -101,8 +101,12 @@ doc_events = {
 		"validate": "erpnext_custome.erpnext_custome.doc_event.employee_event.create_task",	},
     "Attendance": {
         "validate": "erpnext_custome.erpnext_custome.doc_event.attendance_event.clac_hours",
-	}
-
+	},
+    "Sales Invoice": {
+		"validate":"erpnext_custome.erpnext_custome.doc_event.sales_invoice_event.validate_add_note_toremarksss",
+        "validate":"erpnext_custome.erpnext_custome.doc_event.sales_invoice_event.validate_payment_is_pos",
+        } 
+    
 }
 
 # Scheduled Tasks
