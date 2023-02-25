@@ -14,3 +14,9 @@ def validate_payment_is_pos(doc , method):
         for pay in doc.get("payments"):
             if pay.amount <= 0:
                  frappe.throw("Your Payment Amount Can not be zero Because you make sales invoice (is pos) ")
+
+
+@frappe.whitelist()
+def get_customer(customer):
+    customers = frappe.db.sql(f""" SELECT * from `tabCustomer` Where name = {customer} """)
+    return customers;
