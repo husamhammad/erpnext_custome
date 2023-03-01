@@ -34,7 +34,9 @@ app_license = "MIT"
 
 doctype_js = {"Purchase Order" : "public/js/purchase-order.js",
               "Quotation": "public/js/quotation.js",
-              "Sales Invoice" : "public/js/sales_invoice.js"
+              "Sales Invoice" : "public/js/sales_invoice.js",
+              "Warehouse" : "public/js/warehouse.js",
+    		  "Item": "public/js/item.js"
               }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -109,7 +111,13 @@ doc_events = {
     "Sales Invoice": {
 		"validate":"erpnext_custome.erpnext_custome.doc_event.sales_invoice_event.validate_add_note_toremarksss",
         "validate":"erpnext_custome.erpnext_custome.doc_event.sales_invoice_event.validate_payment_is_pos",
-        } 
+        },
+    "Purchase Invoice": {
+		"on_submit": "erpnext_custom.erpnext_custom.event.purchase_invoice_event.create_purchase_receipt"
+	},
+    "Material Request":{
+   	 	"on_submit": "erpnext_custom.erpnext_custom.event.material_request_event.create_stock_entry"
+	}
     
 }
 
